@@ -1,1 +1,6 @@
 com\ur\thph\urcap\ProgramNodeMojo.class
+com\ur\thph\urcap\ProgramNodeClassModel.class
+com\ur\thph\urcap\NodeClassModel.class
+com\ur\thph\urcap\ProgramNodeExecutionProvider.class
+META-INF\sisu\javax.inject.Named
+com\ur\thph\urcap\NodeProvider.class

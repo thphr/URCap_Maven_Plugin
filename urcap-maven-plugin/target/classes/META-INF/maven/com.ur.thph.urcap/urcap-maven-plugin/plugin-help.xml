@@ -25,7 +25,58 @@
       <instantiationStrategy>per-lookup</instantiationStrategy>
       <executionStrategy>once-per-session</executionStrategy>
       <threadSafe>false</threadSafe>
-      <parameters/>
+      <parameters>
+        <parameter>
+          <name>contributionClassName</name>
+          <type>java.lang.String</type>
+          <required>false</required>
+          <editable>true</editable>
+          <description></description>
+        </parameter>
+        <parameter>
+          <name>isChildrenAllowed</name>
+          <type>java.lang.String</type>
+          <required>false</required>
+          <editable>true</editable>
+          <description></description>
+        </parameter>
+        <parameter>
+          <name>nodeId</name>
+          <type>java.lang.String</type>
+          <required>false</required>
+          <editable>true</editable>
+          <description></description>
+        </parameter>
+        <parameter>
+          <name>nodeTitle</name>
+          <type>java.lang.String</type>
+          <required>false</required>
+          <editable>true</editable>
+          <description></description>
+        </parameter>
+        <parameter>
+          <name>serviceClassName</name>
+          <type>java.lang.String</type>
+          <required>false</required>
+          <editable>true</editable>
+          <description></description>
+        </parameter>
+        <parameter>
+          <name>viewClassName</name>
+          <type>java.lang.String</type>
+          <required>false</required>
+          <editable>true</editable>
+          <description></description>
+        </parameter>
+      </parameters>
+      <configuration>
+        <contributionClassName implementation="java.lang.String" default-value="Test">${contributionClassName}</contributionClassName>
+        <isChildrenAllowed implementation="java.lang.String" default-value="false">${isChildrenAllowed}</isChildrenAllowed>
+        <nodeId implementation="java.lang.String" default-value="myNode">${nodeId}</nodeId>
+        <nodeTitle implementation="java.lang.String" default-value="My Node">${nodeTitle}</nodeTitle>
+        <serviceClassName implementation="java.lang.String" default-value="Test">${serviceClassName}</serviceClassName>
+        <viewClassName implementation="java.lang.String" default-value="Test">${viewClassName}</viewClassName>
+      </configuration>
     </mojo>
   </mojos>
 </plugin>
