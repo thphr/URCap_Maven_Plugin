@@ -13,6 +13,65 @@
   <inheritedByDefault>true</inheritedByDefault>
   <mojos>
     <mojo>
+      <goal>addinstallationnode</goal>
+      <requiresDirectInvocation>false</requiresDirectInvocation>
+      <requiresProject>true</requiresProject>
+      <requiresReports>false</requiresReports>
+      <aggregator>false</aggregator>
+      <requiresOnline>false</requiresOnline>
+      <inheritedByDefault>true</inheritedByDefault>
+      <phase>install</phase>
+      <implementation>com.ur.thph.urcap.InstallationNodeMojo</implementation>
+      <language>java</language>
+      <instantiationStrategy>per-lookup</instantiationStrategy>
+      <executionStrategy>once-per-session</executionStrategy>
+      <threadSafe>false</threadSafe>
+      <parameters>
+        <parameter>
+          <name>contributionClassName</name>
+          <type>java.lang.String</type>
+          <required>false</required>
+          <editable>true</editable>
+          <description></description>
+        </parameter>
+        <parameter>
+          <name>nodeTitle</name>
+          <type>java.lang.String</type>
+          <required>false</required>
+          <editable>true</editable>
+          <description></description>
+        </parameter>
+        <parameter>
+          <name>project</name>
+          <type>org.apache.maven.project.MavenProject</type>
+          <required>false</required>
+          <editable>false</editable>
+          <description></description>
+        </parameter>
+        <parameter>
+          <name>serviceClassName</name>
+          <type>java.lang.String</type>
+          <required>false</required>
+          <editable>true</editable>
+          <description></description>
+        </parameter>
+        <parameter>
+          <name>viewClassName</name>
+          <type>java.lang.String</type>
+          <required>false</required>
+          <editable>true</editable>
+          <description></description>
+        </parameter>
+      </parameters>
+      <configuration>
+        <contributionClassName implementation="java.lang.String" default-value="Test">${contributionClassName}</contributionClassName>
+        <nodeTitle implementation="java.lang.String" default-value="My Node">${nodeTitle}</nodeTitle>
+        <project implementation="org.apache.maven.project.MavenProject">${project}</project>
+        <serviceClassName implementation="java.lang.String" default-value="Test">${serviceClassName}</serviceClassName>
+        <viewClassName implementation="java.lang.String" default-value="Test">${viewClassName}</viewClassName>
+      </configuration>
+    </mojo>
+    <mojo>
       <goal>addprogramnode</goal>
       <description>An Maven Mojo that adds relevant classes for creating a program node to the chosen project.</description>
       <requiresDirectInvocation>false</requiresDirectInvocation>

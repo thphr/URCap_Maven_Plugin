@@ -7,16 +7,13 @@ import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
-import org.apache.maven.shared.invoker.*;
+import org.apache.maven.shared.invoker.InvocationRequest;
 
 import javax.inject.Inject;
 import java.util.Properties;
 
-/**
- * An Maven Mojo that adds relevant classes for creating a program node to the chosen project.
- */
-@Mojo(name = "addprogramnode",defaultPhase = LifecyclePhase.INSTALL)
-public class ProgramNodeMojo extends AbstractMojo {
+@Mojo(name = "addinstallationnode",defaultPhase = LifecyclePhase.INSTALL)
+public class InstallationNodeMojo extends AbstractMojo {
 
     @Parameter(property = "contributionClassName", defaultValue = "Test")
     private String contributionClassName;
@@ -26,12 +23,6 @@ public class ProgramNodeMojo extends AbstractMojo {
 
     @Parameter(property = "viewClassName", defaultValue = "Test")
     private String viewClassName;
-
-    @Parameter(property = "isChildrenAllowed", defaultValue = "false")
-    private String isChildrenAllowed;
-
-    @Parameter(property = "nodeId", defaultValue = "myNode")
-    private String nodeId;
 
     @Parameter(property = "nodeTitle", defaultValue = "My Node")
     private String nodeTitle;
@@ -46,12 +37,11 @@ public class ProgramNodeMojo extends AbstractMojo {
 
     @Override
     public void execute() throws MojoExecutionException, MojoFailureException {
-        ProgramNodeClassModel model = new ProgramNodeClassModel(contributionClassName,serviceClassName,viewClassName,isChildrenAllowed,nodeId,nodeTitle);
+        InstallationNodeClassModel model = new InstallationNodeClassModel(contributionClassName,serviceClassName,viewClassName,nodeTitle);
         Properties properties = model.setProperties(project,model);
         InvocationRequest request = provider.setRequest(project,properties);
         String messageResult = provider.executeMavenCommand(request,mavenHomeEnvironment);
 
-        getLog().info("Adding program node to the project! " + messageResult);
+        getLog().info("Adding installation node to the project! " + messageResult);
     }
-
 }

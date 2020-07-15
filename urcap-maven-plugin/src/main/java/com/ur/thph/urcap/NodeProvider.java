@@ -10,6 +10,4 @@ public interface NodeProvider {
     InvocationRequest setRequest(MavenProject project, Properties properties) throws MojoExecutionException;
 
     String executeMavenCommand(InvocationRequest request, String mavenEnvironmentVariable) throws MojoExecutionException;
-
-    Properties setProperties(MavenProject project, NodeClassModel model) throws MojoExecutionException;
 }
