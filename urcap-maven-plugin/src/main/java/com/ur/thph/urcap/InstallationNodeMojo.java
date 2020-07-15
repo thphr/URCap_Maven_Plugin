@@ -11,7 +11,9 @@ import org.apache.maven.shared.invoker.InvocationRequest;
 
 import javax.inject.Inject;
 import java.util.Properties;
-
+/**
+ * An Maven Mojo that adds relevant classes for creating an installation node to the chosen project.
+ */
 @Mojo(name = "addinstallationnode",defaultPhase = LifecyclePhase.INSTALL)
 public class InstallationNodeMojo extends AbstractMojo {
 
@@ -38,7 +40,7 @@ public class InstallationNodeMojo extends AbstractMojo {
     @Override
     public void execute() throws MojoExecutionException, MojoFailureException {
         InstallationNodeClassModel model = new InstallationNodeClassModel(contributionClassName,serviceClassName,viewClassName,nodeTitle);
-        Properties properties = model.setProperties(project,model);
+        Properties properties = model.setProperties(project);
         InvocationRequest request = provider.setRequest(project,properties);
         String messageResult = provider.executeMavenCommand(request,mavenHomeEnvironment);
 

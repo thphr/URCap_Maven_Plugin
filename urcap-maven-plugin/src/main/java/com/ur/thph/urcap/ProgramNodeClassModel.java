@@ -29,35 +29,8 @@ public class ProgramNodeClassModel extends NodeClassModel{
         this.nodeTitle = nodeTitle;
     }
 
-    public String getContributionClassName() {
-        return contributionClassName;
-    }
-
-    public String getServiceClassName() {
-        return serviceClassName;
-    }
-
-    public String getViewClassName() {
-        return viewClassName;
-    }
-
-    public String getIsChildrenAllowed() {
-        return isChildrenAllowed;
-    }
-
-    public String getNodeId() {
-        return nodeId;
-    }
-
-    public String getNodeTitle() {
-        return nodeTitle;
-    }
-
-
     @Override
-    public Properties setProperties(MavenProject project, NodeClassModel model) {
-        if(model instanceof ProgramNodeClassModel) {
-            ProgramNodeClassModel programNodemodel = (ProgramNodeClassModel) model;
+    public Properties setProperties(MavenProject project) {
             Properties properties = new Properties();
             properties.setProperty("interactiveMode", "false");
             properties.setProperty("archetypeGroupId", archetypeGroupId);
@@ -67,15 +40,12 @@ public class ProgramNodeClassModel extends NodeClassModel{
             properties.setProperty("groupId", project.getGroupId());
             properties.setProperty("artifactId", project.getArtifactId());
             properties.setProperty("version", "1.0-SNAPSHOT");
-            properties.setProperty("contributionClassName", programNodemodel.getContributionClassName() + "ProgramNodeContribution");
-            properties.setProperty("serviceClassName", programNodemodel.getServiceClassName() + "ProgramNodeService");
-            properties.setProperty("viewClassName", programNodemodel.getViewClassName() + "ProgramNodeView");
-            properties.setProperty("isChildrenAllowed", programNodemodel.getIsChildrenAllowed());
-            properties.setProperty("nodeId", programNodemodel.getNodeId());
-            properties.setProperty("nodeTitle", programNodemodel.getNodeTitle());
+            properties.setProperty("contributionClassName", this.contributionClassName + "ProgramNodeContribution");
+            properties.setProperty("serviceClassName", this.serviceClassName + "ProgramNodeService");
+            properties.setProperty("viewClassName", this.viewClassName + "ProgramNodeView");
+            properties.setProperty("isChildrenAllowed", this.isChildrenAllowed);
+            properties.setProperty("nodeId", this.nodeId);
+            properties.setProperty("nodeTitle", this.nodeTitle);
             return properties;
-        }
-
-        return null;
     }
 }

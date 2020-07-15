@@ -14,6 +14,7 @@
   <mojos>
     <mojo>
       <goal>addinstallationnode</goal>
+      <description>An Maven Mojo that adds relevant classes for creating an installation node to the chosen project.</description>
       <requiresDirectInvocation>false</requiresDirectInvocation>
       <requiresProject>true</requiresProject>
       <requiresReports>false</requiresReports>
@@ -145,6 +146,58 @@
         <project implementation="org.apache.maven.project.MavenProject">${project}</project>
         <serviceClassName implementation="java.lang.String" default-value="Test">${serviceClassName}</serviceClassName>
         <viewClassName implementation="java.lang.String" default-value="Test">${viewClassName}</viewClassName>
+      </configuration>
+    </mojo>
+    <mojo>
+      <goal>addtoolbarnode</goal>
+      <description>An Maven Mojo that adds relevant classes for creating a toolbar node to the chosen project.</description>
+      <requiresDirectInvocation>false</requiresDirectInvocation>
+      <requiresProject>true</requiresProject>
+      <requiresReports>false</requiresReports>
+      <aggregator>false</aggregator>
+      <requiresOnline>false</requiresOnline>
+      <inheritedByDefault>true</inheritedByDefault>
+      <phase>install</phase>
+      <implementation>com.ur.thph.urcap.ToolbarNodeMojo</implementation>
+      <language>java</language>
+      <instantiationStrategy>per-lookup</instantiationStrategy>
+      <executionStrategy>once-per-session</executionStrategy>
+      <threadSafe>false</threadSafe>
+      <parameters>
+        <parameter>
+          <name>contributionClassName</name>
+          <type>java.lang.String</type>
+          <required>false</required>
+          <editable>true</editable>
+          <description></description>
+        </parameter>
+        <parameter>
+          <name>icon</name>
+          <type>java.lang.String</type>
+          <required>false</required>
+          <editable>true</editable>
+          <description></description>
+        </parameter>
+        <parameter>
+          <name>project</name>
+          <type>org.apache.maven.project.MavenProject</type>
+          <required>false</required>
+          <editable>false</editable>
+          <description></description>
+        </parameter>
+        <parameter>
+          <name>serviceClassName</name>
+          <type>java.lang.String</type>
+          <required>false</required>
+          <editable>true</editable>
+          <description></description>
+        </parameter>
+      </parameters>
+      <configuration>
+        <contributionClassName implementation="java.lang.String" default-value="Test">${contributionClassName}</contributionClassName>
+        <icon implementation="java.lang.String" default-value="/iconPath">${icon}</icon>
+        <project implementation="org.apache.maven.project.MavenProject">${project}</project>
+        <serviceClassName implementation="java.lang.String" default-value="Test">${serviceClassName}</serviceClassName>
       </configuration>
     </mojo>
   </mojos>
