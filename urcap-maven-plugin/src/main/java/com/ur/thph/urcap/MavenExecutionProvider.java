@@ -29,7 +29,8 @@ public class MavenExecutionProvider implements NodeProvider{
     @Override
     public String executeMavenCommand(InvocationRequest request, String mavenEnvironmentVariable) throws MojoExecutionException {
         Invoker invoker = new DefaultInvoker();
-        invoker.setMavenHome(new File(mavenEnvironmentVariable));
+        //invoker.setMavenHome(new File(mavenEnvironmentVariable));
+        invoker.getMavenExecutable();
         String messageResult = "";
         try {
             InvocationResult result = invoker.execute(request);
