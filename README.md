@@ -1,6 +1,6 @@
 URCap Maven Plugin
 
-This project is a maven plugin made for development of URCaps using Swing and Java.
+This project is a maven plugin made for development of URCaps using Swing and Java. It can be cloned and installed as instructed in the following steps or it can be opened in an IDE and further development of this is very much welcome!
 It contains feature for adding code skeleton for the classes: view, service and contribution as a starting point for adding:
     - Program node
     - Installation node
