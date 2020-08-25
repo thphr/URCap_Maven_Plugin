@@ -4,7 +4,9 @@ This project is a maven plugin made for development of URCaps using Swing and Ja
 It contains feature for adding code skeleton for the classes: view, service and contribution as a starting point for adding:
 
 Program node
+
 Installation node
+
 Toolbar node 
 
 To use this plugin, the plugin must be installed using maven by directing to the /target and run the following command in the terminal(required to have maven installed on the computer):
